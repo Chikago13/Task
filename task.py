@@ -53,9 +53,36 @@
 
 # 5.Вы вводите с клавиатуры последовательность чисел, разделённых запятой. Составьте список и кортеж с этими числами.
 
-a = input('Введите последовательность чисел, разделённых запятой:')
+# a = input('Введите последовательность чисел, разделённых запятой:')
 
-list = a.split(',')
-tuple = tuple(list)
-print(list)
-print(tuple)
+# list = a.split(',')
+# tuple = tuple(list)
+# print(list)
+# print(tuple)
+
+
+# 2. Напишите программу которая настроит отображение комментария к отметке 'мне нравится' в условном посте. Список имен передается в кач-ве аргумента.  
+# Например:   
+# []                                -->  "no one likes this"   
+# ["Peter"]                         -->  "Peter likes this"   
+# ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"   
+# ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"   
+# ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this" 
+
+
+def fun_like(name):
+    if len(name) == 0:
+        return "no one likes this"
+    elif len(name)==1:
+        return name[0] + "likes this"
+    elif 1 < len(name) <= 3:
+        return " and ".join(name) + " like this"
+    else:
+        return ", ".join(name[0:2]) + f" and {str(len(name)-2)} others like this"
+    
+
+print(fun_like([]))     
+print(fun_like(["Peter"]))   
+print(fun_like(["Jacob", "Alex"]))
+print(fun_like(["Max", "John", "Mark"]))   
+print(fun_like(["Alex", "Jacob", "Mark", "Max"])) 
