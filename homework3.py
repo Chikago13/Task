@@ -1,5 +1,5 @@
-import re
-from collections import defaultdict
+# import re
+# from collections import defaultdict
 
 # 1. Напишите функцию, которая принимает на вход список строк и возвращает наиболее часто встречающуюся строку.
 
@@ -19,8 +19,7 @@ from collections import defaultdict
 
 
 # def funck_list(a, b):
-#     res = [a, b]
-#     return [i for j in res for i in j]
+#     return [i for i in a if  i in b]
 
 
 # print(funck_list(a, b))
@@ -31,8 +30,10 @@ from collections import defaultdict
 #     vowel = ['a','e','i','o','u']
 #     res = 0
 #     for i in string:
+#         print(i)
 #         if i in vowel:
 #             res += 1 
+#             print(res)
 #     return res
 
 # def vowel_words(string):
@@ -56,3 +57,9 @@ from collections import defaultdict
 #     return sort_dict
 
 # print(funck_dict(dict_list))
+
+
+
+
+
+
