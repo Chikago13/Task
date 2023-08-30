@@ -45,9 +45,9 @@
 
 def games():
     d = {
-        'scissors': ('paper'),
-        'paper': ('rock'),
-        'rock': ('scissors'),
+        'scissors': 'paper',
+        'paper': 'rock',
+        'rock': 'scissors',
     }
 
     player1 = input('Player1 Введите: rock, paper, scissors: ')
