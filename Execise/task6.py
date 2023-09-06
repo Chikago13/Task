@@ -6,7 +6,7 @@ def func(l):
     res = []
     count = 0
     for i in l:
-        if (i == 0):
+        if i == 0:
             count += 1
             continue
         res.append(i)
