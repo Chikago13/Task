@@ -19,14 +19,10 @@ class Human:
         return f'Имя: {self.name} Фамилия: {self.surname}'
     
     def get_age(self):
-        return f'Год рождения: {self.birth_year}'
-
-    # def humah_age(self):
-    #     return f' Возраст человека: {datetime.now().year-self.birth_year}'
-
+        return f' Возраст человека: {datetime.now().year-self.birth_year}'
 
 human_1 = Human('Alex', 'Volkov', 1988)
 
 print(human_1.full_name())
 print(human_1.get_age())
-# print(human_1.humah_age())
+
