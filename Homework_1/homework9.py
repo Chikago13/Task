@@ -11,15 +11,19 @@ class Snow:
 
 
     def __add__(self, n):
+        self.num_of_snowflakes += n
         return self.num_of_snowflakes + n
-    
+
     def __sub__(self, n):
+        self.num_of_snowflakes -= n
         return self.num_of_snowflakes - n
     
     def __mul__(self, n):
+        self.num_of_snowflakes *= n
         return self.num_of_snowflakes * n
     
     def __truediv__(self, n):
+        self.num_of_snowflakes /= n
         return self.num_of_snowflakes / n
     
 
@@ -32,10 +36,19 @@ class Snow:
         string_of_snowflakes +='*' * result
         return string_of_snowflakes
 
+#     def makeSnow(self, snowflakes_in_row):
+#         string_of_snowflakes = ''
+#         for i in range(int(self.num_of_snowflakes/snowflakes_in_row)):
+#             string_of_snowflakes += '*' * snowflakes_in_row + '\n'
+#         string_of_snowflakes += '*' * (self.num_of_snowflakes % snowflakes_in_row) + '\n'
+#         return string_of_snowflakes
+
+
     
 
 snow = Snow(5)
-print(snow.makeSnow(2))
+print(snow.makeSnow(10))
+print(snow.__add__(2))
 
 
 
