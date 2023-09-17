@@ -11,18 +11,22 @@
 class Robot:
 
     def __init__(self, x, y):
-        if x not in range(0, 101):
-            print('Несоответсвует кординате x:')
-            exit(0)
-        if y not in range(0, 101):
-            print('Несоответсвует кординате y:')
-            exit(0)
-        self.x = x
+        # if x not in range(0, 101):
+        #     print('Несоответсвует кординате x:')
+        #     exit(0)
+        # if y not in range(0, 101):
+        #     print('Несоответсвует кординате y:')
+        #     exit(0)
+        self.x =x
         self.y = y
+        # self.x = x if x not in range(0, 101) else 0
+        # self.y = y if y not in range(0, 101) else 0
 
 
     def move(self, res):
-
+        
+        self.x = max(0, min(self.x, 100))
+        self.y = max(0, min(self.y, 100))
 
         for  i in res:
 
@@ -47,10 +51,12 @@ class Robot:
                     return 'Несоответсвует кординате x:'
                 self.x -= 1
 
+
+
         return self.x, self.y
 
 
-r= Robot(101, 120)
+r= Robot(10, 0)
 print(r.move('NNEWS'))
 
 
