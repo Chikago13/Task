@@ -1,0 +1,1 @@
+COMMANDS_NAMES = ['com1', 'com2']
