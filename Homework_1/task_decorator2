@@ -1,0 +1,31 @@
+from typing import Type
+
+#  Реализуйте декоратор, который проверяет аргументы функции на тип данных. Соответствие аннотациям. 
+# Рекомендую использовать метод annotations. В кач-ве результата возвращаем значение bool.
+
+def check_argument_types(func):
+    def wrapper(*args, **kwargs):
+        annotations = func.__annotations__
+
+        if len(args) > len(annotations):
+            raise TypeError(f"{func.__name__}() missing {len(annotations) - len(args)} required positional argument")
+
+        for arg_name, arg_type in annotations.items():
+            if arg_name in kwargs:
+                if not isinstance(kwargs[arg_name], arg_type):
+                    return False
+            elif arg_name in func.__code__.co_varnames:  # Проверяем, что аргумент с данным именем существует
+                arg_index = list(func.__code__.co_varnames).index(arg_name)
+                if not isinstance(args[arg_index], arg_type):
+                    return False
+        return func(*args, **kwargs)
+
+    return wrapper
+
+@check_argument_types
+def example_function(x: int, s: str) -> bool:
+    print(x, s)
+    return True
+
+result = example_function(10, "Hello, World!")
+print(result)
