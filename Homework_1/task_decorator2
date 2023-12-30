@@ -1,4 +1,6 @@
 from typing import Type
+import time
+import sys
 
 #  Реализуйте декоратор, который проверяет аргументы функции на тип данных. Соответствие аннотациям. 
 # Рекомендую использовать метод annotations. В кач-ве результата возвращаем значение bool.
@@ -29,3 +31,28 @@ def example_function(x: int, s: str) -> bool:
 
 result = example_function(10, "Hello, World!")
 print(result)
+
+
+
+# Напишите декоратор, замеряет время выполнения функции и кол-во памяти, которое занимает ответ.
+def measure(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        mem_size = sys.getsizeof(result)
+        print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds and used {mem_size} bytes of memory.")
+        return result
+    return wrapper
+
+
+@measure
+def my_function(arg1, arg2):
+    result = arg2 + arg2
+    return result
+
+
+result = my_function(10000, 50000)
+print(result)
+
+
